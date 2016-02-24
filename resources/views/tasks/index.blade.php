@@ -18,7 +18,7 @@
 
                     <!-- New Task Form -->
                     
-                    {!!Form::open(array('url' => '/task', 'class' => 'form-horizontal'))!!}
+                    {!!Form::open(array('url' => '/task', 'class' => 'form-horizontal', 'data-parsley-validate'))!!}
 
                         <!-- Task Name -->
                         <div class="form-group">
