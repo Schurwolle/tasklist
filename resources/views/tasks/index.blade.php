@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('head')
+{!!Html::style('/parsley.css')!!}
+@endsection
+
 @section('content')
     <div class="container">
         <div class="col-sm-offset-2 col-sm-8">
@@ -22,7 +26,7 @@
                            
 
                             <div class="col-sm-6">
-                                {!!Form::text('name', old('task'), ['class' => 'form-control', 'id' => 'task-name', 'required'])!!}
+                                {!!Form::text('name', old('task'), ['class' => 'form-control', 'id' => 'task-name', 'required', 'data-parsley-required-message' => 'Task field is required.', 'data-parsley-trigger' => 'change focusout'])!!}
                             </div>
                         </div>
 
@@ -71,4 +75,15 @@
             @endif
         </div>
     </div>
+@endsection
+
+@section('footer')
+    <script type="text/javascript">
+        window.ParsleyConfig = {
+            errorsWrapper: '<div></div>',
+            errorTemplate: '<div class="alert alert-danger parsley" role="alert"></div>'
+        };
+    </script>
+
+    {!!Html::script('/parsley.min.js')!!}
 @endsection
